@@ -1,39 +1,16 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-        <style>
-            body {
-                margin: 0;
-                background-color: rgb(10, 10, 10);
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-            }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <span id="content"></span>
+    <span id="morse-preview">&nbsp;</span>
+    <span id="letter-preview"></span>
 
-            body > * {
-                color: white;
-            }
-
-            #content {
-                font-size: 2.5rem;
-            }
-
-            #morse-preview,
-            #letter-preview {
-                font-size: 5rem;
-            }
-        </style>
-    </head>
-    <body>
-        <div id="content"></div>
-        <div id="morse-preview"></div>
-        <div id="letter-preview"></div>
-
-        <script src="index.js" type="module"></script>
-    </body>
+    <script src="./morse-to-english.js" type="module"></script>
+  </body>
 </html>
