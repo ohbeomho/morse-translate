@@ -1,3 +1,5 @@
+// TODO: Also make english to morse code translator
+
 // letter_morse -> key is letter
 // morse_letter -> key is morse code
 import letter_morse from "./morse.js"
