@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  background-color: rgb(10, 10, 10);
+  background-color: black;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -10,13 +10,70 @@ body {
 
 body > * {
   color: white;
-}
-
-#content {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
 }
 
 #morse-preview,
 #letter-preview {
-  font-size: 5rem;
+  font-size: 4rem;
+}
+
+textarea {
+  all: unset;
+  border: 2px solid white;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  resize: none;
+}
+
+button {
+  all: unset;
+  color: white;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  border: 2px solid white;
+  transition: all 0.15s;
+}
+
+button:hover {
+  cursor: pointer;
+  border-width: 5px;
+}
+
+#morse-input {
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.5rem;
+  display: none;
+}
+
+#morse-input > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+}
+
+#input-feedback {
+  color: white;
+  background-color: black;
+  border: 1rem solid white;
+  box-sizing: border-box;
+  border-radius: 50%;
+  transition: all 0.2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 13rem;
+}
+
+#input-feedback[class="active"] {
+  color: black;
+  background-color: white;
+  border-color: black;
+  border-width: 0.5rem;
 }

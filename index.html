@@ -9,11 +9,26 @@
   <body>
     <h1>Morse code to english</h1>
 
-    <span id="content">&nbsp;</span>
-    <span id="content-morse">&nbsp;</span>
-    <span id="morse-preview">&nbsp;</span>
-    <span id="letter-preview">&nbsp;</span>
+    <p>
+      <textarea name="content" id="content" placeholder="Text"></textarea>
+    </p>
+    <p>
+      <textarea
+        name="content-morse"
+        id="content-morse"
+        placeholder="Morse code (. and -)"
+      ></textarea>
+    </p>
 
-    <script src="./morse-to-english.js" type="module"></script>
+    <button id="morse-input-toggle">Enable Morse Input</button>
+    <div id="morse-input">
+      <div id="input-feedback">[Press Space]</div>
+      <div>
+        <span id="morse-preview">&nbsp;</span>
+        <span id="letter-preview">&nbsp;</span>
+      </div>
+    </div>
+
+    <script src="./index.js" type="module"></script>
   </body>
 </html>
