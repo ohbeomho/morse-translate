@@ -8,20 +8,35 @@ for (let key in letter_morse) morse_letter[letter_morse[key]] = key
 const content = document.getElementById("content"),
   content_morse = document.getElementById("content-morse"),
   morse_preview = document.getElementById("morse-preview"),
-  letter_preview = document.getElementById("letter-preview")
+  letter_preview = document.getElementById("letter-preview"),
+  morse_read = document.getElementById("morse-read")
 const morse_toggle = document.getElementById("morse-input-toggle"),
   morse_input = document.getElementById("morse-input"),
   input_feedback = document.getElementById("input-feedback")
 
 const morse_content = []
 
+function read_morse() {
+  const synth = new Tone.Synth().toDestination()
+  let now = Tone.now()
+
+  for (let morse of morse_content) {
+    for (let char of morse) {
+      const isShort = char === "."
+      synth.triggerAttackRelease(400, isShort ? 0.15 : 0.4, now)
+      now += isShort ? 0.2 : 0.4
+    }
+
+    now += 0.3
+  }
+}
+
 /**
  * @param {InputEvent} e
  */
 content.oninput = () => {
   morse_content.length = 0
-  for (let char of content.value)
-    morse_content.push(letter_morse[char.toUpperCase()])
+  for (let char of content.value) morse_content.push(letter_morse[char.toUpperCase()])
   content_morse.value = morse_content.filter((x) => x).join(" ")
 }
 
@@ -47,13 +62,7 @@ let downTime, inputTimeout
  * @param {KeyboardEvent} e
  */
 window.onkeydown = (e) => {
-  if (
-    e.key !== " " ||
-    e.repeat ||
-    !isMorseInput ||
-    [content, content_morse].includes(e.target)
-  )
-    return
+  if (e.key !== " " || e.repeat || !isMorseInput || [content, content_morse].includes(e.target)) return
 
   downTime = performance.now()
   clearTimeout(inputTimeout)
@@ -96,9 +105,9 @@ window.onkeyup = (e) => {
 }
 
 morse_toggle.onclick = () => {
-  morse_toggle.innerText = isMorseInput
-    ? "Enable Morse Input"
-    : "Disable Morse Input"
+  morse_toggle.innerText = isMorseInput ? "Enable Morse Input" : "Disable Morse Input"
   morse_input.style.display = isMorseInput ? "none" : "flex"
   isMorseInput = !isMorseInput
 }
+
+morse_read.onclick = read_morse

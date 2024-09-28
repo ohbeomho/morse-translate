@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,21 +10,15 @@
     <h1>Morse Code Translate</h1>
 
     <p>
-      <textarea
-        name="content"
-        id="content"
-        placeholder="English Text"
-      ></textarea>
+      <textarea name="content" id="content" placeholder="English Text"></textarea>
     </p>
     <p>
-      <textarea
-        name="content-morse"
-        id="content-morse"
-        placeholder="Morse code (. and -)"
-      ></textarea>
+      <textarea name="content-morse" id="content-morse" placeholder="Morse code (. and -)"></textarea><br />
+      <button id="morse-read">🔊</button>
     </p>
-
-    <button id="morse-input-toggle">Enable Morse Input</button>
+    <p>
+      <button id="morse-input-toggle">Enable Morse Input</button>
+    </p>
     <div id="morse-input">
       <div id="input-feedback">[Press Space]</div>
       <div>
@@ -33,6 +27,7 @@
       </div>
     </div>
 
+    <script src="http://unpkg.com/tone"></script>
     <script src="./index.js" type="module"></script>
   </body>
 </html>
